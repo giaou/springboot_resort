@@ -12,7 +12,6 @@ import java.util.List;
 @RequestMapping("api/v1/customers")
 public class CustomerController {
 
-
     final private CustomerService customerService;
     @Autowired
     public CustomerController(CustomerService customerService){
