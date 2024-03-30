@@ -1,8 +1,23 @@
 package org.example.resortspringboot.Customer;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table
 public class Customer {
+
+    @Id
+    @SequenceGenerator(
+            name = "customer_sequence",
+            sequenceName = "customer_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
     private long id;
     private String lastName;
     private String firstName;
@@ -31,6 +46,10 @@ public class Customer {
         this.email = email;
         this.DoB = doB;
         this.age = age;
+    }
+
+    public Customer() {
+
     }
 
     public long getId() {
